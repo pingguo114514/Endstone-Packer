@@ -28,14 +28,15 @@ jobs:
         ../lip install -y github.com/LiteLDev/PreLoader
     - name: Copy files
       run: |
+        cd Endstone
         mkdir plugins/endstone
         xcopy ../Endstone-releases/bin/python plugins/endstone
         echo '{"name": "endstone","entry": "Lib/site-packages/endstone/_internal/endstone_runtime.dll","version": ${{ github.event.inputs.Endstone }},"type": "preload-native"}' > plugins/endstone/manifest.json
     - name: Pack files
       run: |
+        cd Endstone
         7z a -tzip "Endstone-${{ github.event.inputs.Endstone }}.zip" .
         copy "Endstone-${{ github.event.inputs.Endstone }}.zip" ..
-        cd ..
     - name: Upload to Release
       uses: softprops/action-gh-release@v1
       with:
