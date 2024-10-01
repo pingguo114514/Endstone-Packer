@@ -18,7 +18,7 @@ jobs:
       uses: actions/checkout@v4
     - name: Download Endstone
       run: |
-        curl -o Endstone.zip https://github.com/EndstoneMC/endstone/releases/download/v${{ github.event.inputs.Endstone }}/endstone-win_amd64-portable.zip
+        curl https://github.com/EndstoneMC/endstone/releases/download/v${{ github.event.inputs.Endstone }}/endstone-win_amd64-portable.zip -OutFile Endstone.zip 
         7z x Endstone.zip -o Endstone-releases
     - name: Download PeEditor&PreLoader
       run: |
