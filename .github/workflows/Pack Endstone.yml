@@ -30,7 +30,7 @@ jobs:
       run: |
         cd Endstone
         mkdir plugins/endstone
-        xcopy ../Endstone-releases/bin/python plugins/endstone
+        xcopy ../Endstone-releases/bin/python plugins/endstone /E
         echo '{"name": "endstone","entry": "Lib/site-packages/endstone/_internal/endstone_runtime.dll","version": ${{ github.event.inputs.Endstone }},"type": "preload-native"}' > plugins/endstone/manifest.json
     - name: Pack files
       run: |
