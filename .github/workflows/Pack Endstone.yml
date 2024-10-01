@@ -24,8 +24,8 @@ jobs:
       run: |
         mkdir Endstone
         cd Endstone
-        ../lip install -y github.com/LiteLDev/PeEditor
-        ../lip install -y github.com/LiteLDev/PreLoader
+        ../lip install -y github.com/LiteLDev/PreLoader@1.9.2
+        ../lip install -y github.com/LiteLDev/PeEditor@3.7.0
         cd ..
     - name: Copy files
       run: |
