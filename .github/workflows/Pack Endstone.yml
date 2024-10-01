@@ -32,7 +32,7 @@ jobs:
         cd Endstone
         mkdir plugins/endstone
         Copy-Item -Path "../Endstone-releases/bin/python/*" -Destination "plugins/endstone" -Recurse
-        echo '{"name": "endstone","entry": "Lib/site-packages/endstone/_internal/endstone_runtime.dll","version": ${{ github.event.inputs.Endstone }},"type": "preload-native"}' > plugins/endstone/manifest.json
+        echo '{"name": "endstone","entry": "Lib/site-packages/endstone/_internal/endstone_runtime.dll","version": "${{ github.event.inputs.Endstone }}","type": "preload-native"}' > plugins/endstone/manifest.json
         cd ..
     - name: Pack files
       run: |
