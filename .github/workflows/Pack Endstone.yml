@@ -24,14 +24,14 @@ jobs:
       run: |
         mkdir Endstone
         cd Endstone
-        ../lip install -y github.com/LiteLDev/PeEditor
-        ../lip install -y github.com/LiteLDev/PreLoader
+        ../lip install -y github.com/LiteLDev/PeEditor@3.7.0
+        ../lip install -y github.com/LiteLDev/PreLoader@1.9.2
         cd ..
     - name: Copy files
       run: |
         cd Endstone
         mkdir plugins/endstone
-        Copy-Item -Path "../Endstone-releases/bin/python" -Destination "plugins/endstone" -Recurse
+        Copy-Item -Path "../Endstone-releases/bin/python/*" -Destination "plugins/endstone" -Recurse
         echo '{"name": "endstone","entry": "Lib/site-packages/endstone/_internal/endstone_runtime.dll","version": ${{ github.event.inputs.Endstone }},"type": "preload-native"}' > plugins/endstone/manifest.json
         cd ..
     - name: Pack files
